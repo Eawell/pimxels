@@ -1,0 +1,180 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Sprites/Enemies/Warrior 4.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/Enemies/Warrior 2.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Enemies/Warrior.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Enemies/Warrior 3.png" type="Texture" id=4]
+[ext_resource path="res://Scenes/Warrior.gd" type="Script" id=5]
+[ext_resource path="res://Sprites/Melee/Sword.png" type="Texture" id=6]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 3 ), ExtResource( 1 ) ],
+"loop": true,
+"name": "Moving",
+"speed": 5.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 5.91898
+height = 8.1933
+
+[sub_resource type="Animation" id=3]
+resource_name = "Left"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 45.0, -20.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -8, 3.5 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "Right"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 135.0, 200.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 8, 3.5 ) ]
+}
+
+[sub_resource type="ConvexPolygonShape2D" id=5]
+points = PoolVector2Array( -30, 0, -27, 3, 0, 3, 0, -3, -27, -3 )
+
+[sub_resource type="CapsuleShape2D" id=6]
+radius = 6.96691
+height = 8.00881
+
+[node name="Warrior" type="KinematicBody2D"]
+collision_layer = 6
+collision_mask = 6
+script = ExtResource( 5 )
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+position = Vector2( 0, -2 )
+frames = SubResource( 1 )
+animation = "Moving"
+frame = 3
+speed_scale = 2.5
+playing = true
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -2 )
+shape = SubResource( 2 )
+
+[node name="Sword" type="Area2D" parent="."]
+position = Vector2( 8, 3.5 )
+rotation = 3.49066
+scale = Vector2( 0.5, 0.5 )
+z_index = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sword"]
+anims/Left = SubResource( 3 )
+anims/Right = SubResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="Sword"]
+position = Vector2( -13.5484, -1.41128 )
+rotation = 3.14159
+texture = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sword"]
+shape = SubResource( 5 )
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2( 0, -2 )
+shape = SubResource( 6 )
+
+[node name="CheckRight" type="RayCast2D" parent="."]
+enabled = true
+cast_to = Vector2( 75, 0 )
+
+[node name="CheckLeft" type="RayCast2D" parent="."]
+enabled = true
+cast_to = Vector2( -75, 0 )
+
+[node name="LeftWall" type="RayCast2D" parent="."]
+position = Vector2( 0, 4 )
+enabled = true
+cast_to = Vector2( -16, 0 )
+collision_mask = 4
+
+[node name="RightWall" type="RayCast2D" parent="."]
+position = Vector2( 0, 4 )
+enabled = true
+cast_to = Vector2( 16, 0 )
+collision_mask = 4
+
+[node name="LeftGround" type="RayCast2D" parent="."]
+position = Vector2( -10, 4 )
+enabled = true
+cast_to = Vector2( 0, 8 )
+collision_mask = 4
+
+[node name="RightGround" type="RayCast2D" parent="."]
+position = Vector2( 10, 4 )
+enabled = true
+cast_to = Vector2( 0, 8 )
+collision_mask = 4
+
+[node name="RightAttack" type="RayCast2D" parent="."]
+enabled = true
+cast_to = Vector2( 12, 0 )
+
+[node name="LeftAttack" type="RayCast2D" parent="."]
+enabled = true
+cast_to = Vector2( -12, 0 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.05
+one_shot = true
+[connection signal="body_entered" from="Sword" to="." method="_on_Sword_body_entered"]
+[connection signal="animation_finished" from="Sword/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="area_entered" from="Hitbox" to="." method="_on_Hitbox_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

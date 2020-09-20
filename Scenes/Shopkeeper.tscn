@@ -1,0 +1,304 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://Sprites/Other/Shopkeeper 2.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/Other/Shopkeeper.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/Shopkeeper.gd" type="Script" id=3]
+[ext_resource path="res://Sprites/Other/Coin-icon.png" type="Texture" id=4]
+[ext_resource path="res://Other/8bitOperatorPlus-Bold.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://Sprites/Other/InventorySlot.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Other/Arrow.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Other/Heart-Empty.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Knight/RedKnight1.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Ranged/Bow.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Melee/Sword.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/Other/Upgrade.png" type="Texture" id=12]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 16.3594, 11.9347 )
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 1 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="DynamicFont" id=3]
+size = 23
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 12
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 11
+font_data = ExtResource( 5 )
+
+[node name="Shopkeeper" type="Area2D"]
+pause_mode = 2
+script = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -4 )
+shape = SubResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 0, -4 )
+frames = SubResource( 2 )
+frame = 1
+playing = true
+
+[node name="Shop" type="Node2D" parent="."]
+visible = false
+z_index = 3
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="ColorRect" type="ColorRect" parent="Shop"]
+margin_left = -170.0
+margin_top = -90.0
+margin_right = 170.0
+margin_bottom = 90.0
+color = Color( 0, 0, 0, 0.87451 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Shop" type="Label" parent="Shop"]
+margin_left = -31.9643
+margin_top = -88.4643
+margin_right = 44.0357
+margin_bottom = -56.4643
+custom_fonts/font = SubResource( 3 )
+text = "SHOP"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Coins" type="Label" parent="Shop"]
+margin_left = -46.0
+margin_top = -53.0
+margin_right = 4.0
+margin_bottom = -28.0
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 1, 0.937255, 0.0235294, 1 )
+text = "0"
+align = 2
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Coin" type="Sprite" parent="Shop"]
+position = Vector2( 16.9514, -40.2596 )
+scale = Vector2( 1.2, 1.2 )
+texture = ExtResource( 4 )
+
+[node name="1" type="Node2D" parent="Shop"]
+
+[node name="Sprite" type="Sprite" parent="Shop/1"]
+position = Vector2( -140, 30 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 4 )
+
+[node name="Slot" type="Sprite" parent="Shop/1"]
+position = Vector2( -150, 0 )
+scale = Vector2( 1.3, 1.3 )
+texture = ExtResource( 6 )
+
+[node name="Icon" type="Sprite" parent="Shop/1"]
+position = Vector2( -150, 0 )
+scale = Vector2( 1.7, 1.7 )
+texture = ExtResource( 8 )
+
+[node name="Price" type="Label" parent="Shop/1"]
+margin_left = -187.0
+margin_top = 21.0
+margin_right = -148.0
+margin_bottom = 38.0
+custom_fonts/font = SubResource( 5 )
+text = "0"
+align = 2
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="2" type="Node2D" parent="Shop"]
+
+[node name="Sprite" type="Sprite" parent="Shop/2"]
+position = Vector2( -80, 30 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 4 )
+
+[node name="Slot" type="Sprite" parent="Shop/2"]
+position = Vector2( -90, 0 )
+scale = Vector2( 1.3, 1.3 )
+texture = ExtResource( 6 )
+
+[node name="Icon" type="Sprite" parent="Shop/2"]
+position = Vector2( -90, 0 )
+rotation = -0.785398
+texture = ExtResource( 7 )
+
+[node name="Price" type="Label" parent="Shop/2"]
+margin_left = -127.0
+margin_top = 21.0
+margin_right = -88.0
+margin_bottom = 38.0
+custom_fonts/font = SubResource( 5 )
+text = "0"
+align = 2
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="3" type="Node2D" parent="Shop"]
+
+[node name="Sprite" type="Sprite" parent="Shop/3"]
+position = Vector2( -20, 30 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 4 )
+
+[node name="Slot" type="Sprite" parent="Shop/3"]
+position = Vector2( -30, 0 )
+scale = Vector2( 1.3, 1.3 )
+texture = ExtResource( 6 )
+
+[node name="Icon" type="Sprite" parent="Shop/3"]
+position = Vector2( -30, 0 )
+scale = Vector2( 1.3, 1.3 )
+texture = ExtResource( 4 )
+
+[node name="Upgrade" type="Sprite" parent="Shop/3"]
+position = Vector2( -37.937, 3.9685 )
+scale = Vector2( 1.3, 1.3 )
+texture = ExtResource( 12 )
+
+[node name="Price" type="Label" parent="Shop/3"]
+margin_left = -67.0116
+margin_top = 21.1283
+margin_right = -28.0116
+margin_bottom = 38.1283
+custom_fonts/font = SubResource( 5 )
+text = "0"
+align = 2
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="4" type="Node2D" parent="Shop"]
+
+[node name="Sprite" type="Sprite" parent="Shop/4"]
+position = Vector2( 40, 30 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 4 )
+
+[node name="Slot" type="Sprite" parent="Shop/4"]
+position = Vector2( 30, 0 )
+scale = Vector2( 1.3, 1.3 )
+texture = ExtResource( 6 )
+
+[node name="Icon" type="Sprite" parent="Shop/4"]
+position = Vector2( 34.9583, 0.190224 )
+rotation = -1.5708
+scale = Vector2( 0.9, 0.9 )
+texture = ExtResource( 11 )
+
+[node name="Upgrade" type="Sprite" parent="Shop/4"]
+position = Vector2( 22.4819, 3.78632 )
+scale = Vector2( 1.3, 1.3 )
+texture = ExtResource( 12 )
+
+[node name="Price" type="Label" parent="Shop/4"]
+margin_left = -7.0
+margin_top = 21.0
+margin_right = 32.0
+margin_bottom = 38.0
+custom_fonts/font = SubResource( 5 )
+text = "0"
+align = 2
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="5" type="Node2D" parent="Shop"]
+
+[node name="Sprite" type="Sprite" parent="Shop/5"]
+position = Vector2( 100, 30 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 4 )
+
+[node name="Slot" type="Sprite" parent="Shop/5"]
+position = Vector2( 90, 0 )
+scale = Vector2( 1.3, 1.3 )
+texture = ExtResource( 6 )
+
+[node name="Icon" type="Sprite" parent="Shop/5"]
+position = Vector2( 90.9439, 0 )
+scale = Vector2( 0.9, 0.9 )
+texture = ExtResource( 10 )
+
+[node name="Upgrade" type="Sprite" parent="Shop/5"]
+position = Vector2( 83.7341, 3.63719 )
+scale = Vector2( 1.3, 1.3 )
+texture = ExtResource( 12 )
+
+[node name="Price" type="Label" parent="Shop/5"]
+margin_left = 53.0
+margin_top = 21.0
+margin_right = 92.0
+margin_bottom = 38.0
+custom_fonts/font = SubResource( 5 )
+text = "0"
+align = 2
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="6" type="Node2D" parent="Shop"]
+
+[node name="Sprite" type="Sprite" parent="Shop/6"]
+position = Vector2( 160, 30 )
+scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 4 )
+
+[node name="Slot" type="Sprite" parent="Shop/6"]
+position = Vector2( 150, 0 )
+scale = Vector2( 1.3, 1.3 )
+texture = ExtResource( 6 )
+
+[node name="Icon" type="Sprite" parent="Shop/6"]
+position = Vector2( 151.25, 0 )
+scale = Vector2( 1.3, 1.3 )
+texture = ExtResource( 9 )
+
+[node name="Upgrade" type="Sprite" parent="Shop/6"]
+position = Vector2( 142.635, 3.37119 )
+scale = Vector2( 1.3, 1.3 )
+texture = ExtResource( 12 )
+
+[node name="Price" type="Label" parent="Shop/6"]
+margin_left = 113.0
+margin_top = 21.0
+margin_right = 152.0
+margin_bottom = 38.0
+custom_fonts/font = SubResource( 5 )
+text = "0"
+align = 2
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="Shop"]
+wait_time = 0.03
+one_shot = true
+[connection signal="timeout" from="Shop/Timer" to="." method="_on_Timer_timeout"]

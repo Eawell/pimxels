@@ -1,0 +1,125 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://Sprites/Melee/Lance.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/Melee/Stick.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Melee/Spear.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Melee/Dagger.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Melee/Sword.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Melee/Axe.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Melee/Pipe.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Melee/BigSword.png" type="Texture" id=8]
+[ext_resource path="res://Scenes/weapon.gd" type="Script" id=9]
+[ext_resource path="res://Sprites/Melee/Hammer.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Ranged/Bow.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/Ranged/RapidCrossbow.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/Ranged/PowerBow.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/Ranged/Crossbow.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/Melee/Pitchfork.png" type="Texture" id=15]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "BigSword",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "Dagger",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "Lance",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "Sword",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "Pipe",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "Stick",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "Spear",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 15 ) ],
+"loop": true,
+"name": "Pitchfork",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ) ],
+"loop": true,
+"name": "Hammer",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "Axe",
+"speed": 5.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 5.82266
+height = 38.615
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 11 ) ],
+"loop": true,
+"name": "Bow",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 13 ) ],
+"loop": true,
+"name": "PowerBow",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ) ],
+"loop": true,
+"name": "RapidCrossbow",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 14 ) ],
+"loop": true,
+"name": "Crossbow",
+"speed": 5.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=4]
+radius = 11.4313
+height = 8.72774
+
+[node name="Weapon" type="Area2D"]
+scale = Vector2( 0.7, 0.7 )
+script = ExtResource( 9 )
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+position = Vector2( 0, -2 )
+frames = SubResource( 1 )
+animation = "Pitchfork"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -0.349651 )
+rotation = 1.5708
+shape = SubResource( 2 )
+
+[node name="Sprite2" type="AnimatedSprite" parent="."]
+position = Vector2( 0, -8 )
+frames = SubResource( 3 )
+animation = "Bow"
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -8 )
+shape = SubResource( 4 )
+[connection signal="body_entered" from="." to="." method="_on_Weapon_body_entered"]

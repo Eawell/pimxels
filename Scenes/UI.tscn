@@ -1,0 +1,235 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Scenes/UI.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Other/Heart-Empty.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Other/Heart.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Other/Coin-icon.png" type="Texture" id=4]
+[ext_resource path="res://Other/8bitOperatorPlus-Bold.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://Sprites/Other/Arrow.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Other/X.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Melee/Sword.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Ranged/Bow.png" type="Texture" id=9]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "Full",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "Empty",
+"speed": 5.0
+} ]
+
+[sub_resource type="DynamicFont" id=2]
+size = 12
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 12
+font_data = ExtResource( 5 )
+
+[node name="UI" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -0.836227
+margin_bottom = -0.836243
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Hearts" type="Node2D" parent="."]
+position = Vector2( 5, 3 )
+
+[node name="Heart1" type="AnimatedSprite" parent="Hearts"]
+visible = false
+position = Vector2( -185, -100 )
+frames = SubResource( 1 )
+animation = "Empty"
+
+[node name="Heart2" type="AnimatedSprite" parent="Hearts"]
+visible = false
+position = Vector2( -170, -100 )
+frames = SubResource( 1 )
+animation = "Empty"
+
+[node name="Heart3" type="AnimatedSprite" parent="Hearts"]
+visible = false
+position = Vector2( -155, -100 )
+frames = SubResource( 1 )
+animation = "Empty"
+
+[node name="Heart4" type="AnimatedSprite" parent="Hearts"]
+visible = false
+position = Vector2( 0, -100 )
+frames = SubResource( 1 )
+animation = "Empty"
+offset = Vector2( -140, 0 )
+
+[node name="Heart5" type="AnimatedSprite" parent="Hearts"]
+visible = false
+position = Vector2( -125, -100 )
+frames = SubResource( 1 )
+animation = "Empty"
+
+[node name="Heart6" type="AnimatedSprite" parent="Hearts"]
+visible = false
+position = Vector2( -110, -100 )
+frames = SubResource( 1 )
+animation = "Empty"
+
+[node name="Heart7" type="AnimatedSprite" parent="Hearts"]
+visible = false
+position = Vector2( -95, -100 )
+frames = SubResource( 1 )
+animation = "Empty"
+
+[node name="Heart8" type="AnimatedSprite" parent="Hearts"]
+visible = false
+position = Vector2( -80, -100 )
+frames = SubResource( 1 )
+animation = "Empty"
+
+[node name="Heart9" type="AnimatedSprite" parent="Hearts"]
+visible = false
+position = Vector2( -65, -100 )
+frames = SubResource( 1 )
+animation = "Empty"
+
+[node name="Heart10" type="AnimatedSprite" parent="Hearts"]
+visible = false
+position = Vector2( -50, -100 )
+frames = SubResource( 1 )
+animation = "Empty"
+
+[node name="Heart11" type="AnimatedSprite" parent="Hearts"]
+visible = false
+position = Vector2( -185, -88 )
+frames = SubResource( 1 )
+animation = "Empty"
+
+[node name="Heart12" type="AnimatedSprite" parent="Hearts"]
+visible = false
+position = Vector2( -170, -88 )
+frames = SubResource( 1 )
+animation = "Empty"
+
+[node name="Heart13" type="AnimatedSprite" parent="Hearts"]
+visible = false
+position = Vector2( -155, -88 )
+frames = SubResource( 1 )
+animation = "Empty"
+
+[node name="Heart14" type="AnimatedSprite" parent="Hearts"]
+visible = false
+position = Vector2( -140, -88 )
+frames = SubResource( 1 )
+animation = "Empty"
+
+[node name="Heart15" type="AnimatedSprite" parent="Hearts"]
+visible = false
+position = Vector2( -125, -88 )
+frames = SubResource( 1 )
+animation = "Empty"
+
+[node name="Heart16" type="AnimatedSprite" parent="Hearts"]
+visible = false
+position = Vector2( -110, -88 )
+frames = SubResource( 1 )
+animation = "Empty"
+
+[node name="Heart17" type="AnimatedSprite" parent="Hearts"]
+visible = false
+position = Vector2( -95, -88 )
+frames = SubResource( 1 )
+animation = "Empty"
+
+[node name="Heart18" type="AnimatedSprite" parent="Hearts"]
+visible = false
+position = Vector2( -80, -88 )
+frames = SubResource( 1 )
+animation = "Empty"
+
+[node name="Heart19" type="AnimatedSprite" parent="Hearts"]
+visible = false
+position = Vector2( -65, -88 )
+frames = SubResource( 1 )
+animation = "Empty"
+
+[node name="Heart20" type="AnimatedSprite" parent="Hearts"]
+visible = false
+position = Vector2( -50, -88 )
+frames = SubResource( 1 )
+animation = "Empty"
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = 25.0
+margin_top = -102.0
+margin_right = 45.0
+margin_bottom = -77.0
+color = Color( 0.541176, 1, 0.254902, 0.54902 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+margin_left = -5.13574
+margin_top = -101.842
+margin_right = 14.8643
+margin_bottom = -76.8422
+color = Color( 0.541176, 1, 0.254902, 0.54902 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 149.0
+margin_top = -99.0
+margin_right = 170.0
+margin_bottom = -80.0
+custom_fonts/font = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 140, -90 )
+texture = ExtResource( 4 )
+
+[node name="Sprite2" type="Sprite" parent="."]
+position = Vector2( 80, -90 )
+texture = ExtResource( 6 )
+
+[node name="Label2" type="Label" parent="."]
+margin_left = 93.0527
+margin_top = -100.09
+margin_right = 123.053
+margin_bottom = -79.0898
+custom_fonts/font = SubResource( 3 )
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Bow" type="Sprite" parent="."]
+position = Vector2( 2.97521, -88.9949 )
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 9 )
+
+[node name="Sword" type="Sprite" parent="."]
+position = Vector2( 36.0216, -89.4415 )
+rotation = -1.5708
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 8 )
+
+[node name="X" type="Sprite" parent="."]
+position = Vector2( 5.03348, -89.1047 )
+texture = ExtResource( 7 )
+
+[node name="X2" type="Sprite" parent="."]
+position = Vector2( 34.9498, -88.9207 )
+texture = ExtResource( 7 )

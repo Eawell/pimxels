@@ -1,0 +1,860 @@
+[gd_scene load_steps=76 format=2]
+
+[ext_resource path="res://Sprites/Knight/RedKnight1.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/Knight/RedKnightJump.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Knight/RedKnight2.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Knight/RedKnight3.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Knight/RedKnight4.png" type="Texture" id=5]
+[ext_resource path="res://Scenes/Player.gd" type="Script" id=6]
+[ext_resource path="res://Scenes/Melee_weapon.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/UI.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Inventory.gd" type="Script" id=9]
+[ext_resource path="res://Sprites/Other/InventorySlot.png" type="Texture" id=10]
+[ext_resource path="res://Other/8bitOperatorPlus-Bold.ttf" type="DynamicFontData" id=11]
+[ext_resource path="res://Other/Ranged_Spriteframes.tres" type="SpriteFrames" id=12]
+[ext_resource path="res://Other/Armour_Spriteframes.tres" type="SpriteFrames" id=13]
+[ext_resource path="res://Sprites/Knight/BlueKnightJump.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/Knight/BlueKnight3.png" type="Texture" id=15]
+[ext_resource path="res://Other/Melee_Spriteframes.tres" type="SpriteFrames" id=16]
+[ext_resource path="res://Sprites/Knight/WhiteKnightJump.png" type="Texture" id=17]
+[ext_resource path="res://Sprites/Knight/WhiteKnight4.png" type="Texture" id=18]
+[ext_resource path="res://Sprites/Knight/WhiteKnight2.png" type="Texture" id=19]
+[ext_resource path="res://Sprites/Knight/PurpleKnight4.png" type="Texture" id=20]
+[ext_resource path="res://Sprites/Knight/BlueKnight4.png" type="Texture" id=21]
+[ext_resource path="res://Sprites/Knight/PurpleKnight3.png" type="Texture" id=22]
+[ext_resource path="res://Sprites/Knight/BlueKnight2.png" type="Texture" id=23]
+[ext_resource path="res://Sprites/Knight/PurpleKnightJump.png" type="Texture" id=24]
+[ext_resource path="res://Sprites/Knight/PurpleKnight2.png" type="Texture" id=25]
+[ext_resource path="res://Sprites/Knight/WhiteKnight3.png" type="Texture" id=26]
+[ext_resource path="res://Sprites/Knight/BlueKnight1.png" type="Texture" id=27]
+[ext_resource path="res://Sprites/Knight/BlackKnight1.png" type="Texture" id=28]
+[ext_resource path="res://Sprites/Knight/WhiteKnight1.png" type="Texture" id=29]
+[ext_resource path="res://Sprites/Knight/PurpleKnight1.png" type="Texture" id=30]
+[ext_resource path="res://Sprites/Knight/BlackKnight3.png" type="Texture" id=31]
+[ext_resource path="res://Sprites/Knight/BlackKnightJump.png" type="Texture" id=32]
+[ext_resource path="res://Sprites/Knight/BlackKnight4.png" type="Texture" id=33]
+[ext_resource path="res://Sprites/Knight/BlackKnight2.png" type="Texture" id=34]
+[ext_resource path="res://Scenes/Ranged_weapon.tscn" type="PackedScene" id=35]
+[ext_resource path="res://Scenes/Bob.tscn" type="PackedScene" id=36]
+[ext_resource path="res://Scenes/Light.tscn" type="PackedScene" id=37]
+[ext_resource path="res://Sprites/Other/Wings 3.png" type="Texture" id=38]
+[ext_resource path="res://Sprites/Other/Wings 2.png" type="Texture" id=39]
+[ext_resource path="res://Sprites/Other/Wings 4.png" type="Texture" id=40]
+[ext_resource path="res://Sprites/Other/Wings 6.png" type="Texture" id=41]
+[ext_resource path="res://Sprites/Other/Wings 1.png" type="Texture" id=42]
+[ext_resource path="res://Sprites/Other/Wings 7.png" type="Texture" id=43]
+[ext_resource path="res://Sprites/Other/Wings 5.png" type="Texture" id=44]
+[ext_resource path="res://Sprites/Other/Wings 8.png" type="Texture" id=45]
+[ext_resource path="res://Sprites/Other/Grey Wings 7.png" type="Texture" id=46]
+[ext_resource path="res://Sprites/Other/Grey Wings 8.png" type="Texture" id=47]
+[ext_resource path="res://Sprites/Other/Grey Wings 6.png" type="Texture" id=48]
+[ext_resource path="res://Sprites/Other/Grey Wings 3.png" type="Texture" id=49]
+[ext_resource path="res://Sprites/Other/Grey Wings 1.png" type="Texture" id=50]
+[ext_resource path="res://Sprites/Other/Grey Wings 2.png" type="Texture" id=51]
+[ext_resource path="res://Sprites/Other/Grey Wings 4.png" type="Texture" id=52]
+[ext_resource path="res://Sprites/Other/Grey Wings 5.png" type="Texture" id=53]
+[ext_resource path="res://Sprites/Other/Spaghetti shield.png" type="Texture" id=54]
+[ext_resource path="res://Sprites/Other/redbull.png" type="Texture" id=55]
+[ext_resource path="res://Sprites/Other/car.png" type="Texture" id=56]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 1 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "Walking",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "Jumping",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 27 ), ExtResource( 15 ), ExtResource( 23 ), ExtResource( 15 ), ExtResource( 27 ), ExtResource( 21 ) ],
+"loop": true,
+"name": "Walking",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 27 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 14 ) ],
+"loop": true,
+"name": "Jumping",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 28 ), ExtResource( 31 ), ExtResource( 34 ), ExtResource( 31 ), ExtResource( 28 ), ExtResource( 33 ) ],
+"loop": true,
+"name": "Walking",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 28 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 32 ) ],
+"loop": true,
+"name": "Jumping",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ ExtResource( 30 ), ExtResource( 22 ), ExtResource( 25 ), ExtResource( 22 ), ExtResource( 30 ), ExtResource( 20 ) ],
+"loop": true,
+"name": "Walking",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 30 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 24 ) ],
+"loop": true,
+"name": "Jumping",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ ExtResource( 29 ), ExtResource( 26 ), ExtResource( 19 ), ExtResource( 26 ), ExtResource( 29 ), ExtResource( 18 ) ],
+"loop": true,
+"name": "Walking",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 29 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 17 ) ],
+"loop": true,
+"name": "Jumping",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=6]
+animations = [ {
+"frames": [ ExtResource( 42 ), ExtResource( 39 ), ExtResource( 38 ), ExtResource( 40 ), ExtResource( 44 ), ExtResource( 41 ), ExtResource( 43 ), ExtResource( 45 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 50 ), ExtResource( 51 ), ExtResource( 49 ), ExtResource( 52 ), ExtResource( 53 ), ExtResource( 48 ), ExtResource( 46 ), ExtResource( 47 ) ],
+"loop": true,
+"name": "Grey",
+"speed": 5.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=7]
+radius = 7.23518
+height = 4.21672
+
+[sub_resource type="DynamicFont" id=8]
+size = 12
+font_data = ExtResource( 11 )
+
+[sub_resource type="DynamicFont" id=9]
+size = 9
+font_data = ExtResource( 11 )
+
+[sub_resource type="DynamicFont" id=10]
+size = 12
+font_data = ExtResource( 11 )
+
+[sub_resource type="DynamicFont" id=11]
+size = 9
+font_data = ExtResource( 11 )
+
+[sub_resource type="DynamicFont" id=12]
+size = 9
+font_data = ExtResource( 11 )
+
+[sub_resource type="DynamicFont" id=13]
+size = 9
+font_data = ExtResource( 11 )
+
+[sub_resource type="DynamicFont" id=14]
+size = 9
+font_data = ExtResource( 11 )
+
+[sub_resource type="DynamicFont" id=15]
+size = 11
+font_data = ExtResource( 11 )
+
+[sub_resource type="DynamicFont" id=16]
+size = 11
+font_data = ExtResource( 11 )
+
+[sub_resource type="DynamicFont" id=17]
+size = 11
+font_data = ExtResource( 11 )
+
+[sub_resource type="DynamicFont" id=18]
+size = 11
+font_data = ExtResource( 11 )
+
+[sub_resource type="CapsuleShape2D" id=19]
+radius = 8.24537
+height = 3.93173
+
+[node name="Player" type="KinematicBody2D"]
+z_index = 1
+collision_layer = 3
+collision_mask = 3
+script = ExtResource( 6 )
+
+[node name="Light" parent="." instance=ExtResource( 37 )]
+visible = false
+
+[node name="Animations" type="Node2D" parent="."]
+position = Vector2( 0, -2 )
+
+[node name="Red" type="AnimatedSprite" parent="Animations"]
+frames = SubResource( 1 )
+animation = "Walking"
+frame = 4
+speed_scale = 2.0
+playing = true
+
+[node name="Blue" type="AnimatedSprite" parent="Animations"]
+frames = SubResource( 2 )
+animation = "Walking"
+frame = 3
+speed_scale = 2.0
+playing = true
+
+[node name="Black" type="AnimatedSprite" parent="Animations"]
+frames = SubResource( 3 )
+animation = "Walking"
+frame = 2
+speed_scale = 2.0
+playing = true
+
+[node name="Purple" type="AnimatedSprite" parent="Animations"]
+frames = SubResource( 4 )
+animation = "Walking"
+frame = 3
+speed_scale = 2.0
+playing = true
+
+[node name="White" type="AnimatedSprite" parent="Animations"]
+frames = SubResource( 5 )
+animation = "Walking"
+frame = 3
+speed_scale = 2.0
+playing = true
+
+[node name="Wings" type="AnimatedSprite" parent="Animations"]
+frames = SubResource( 6 )
+animation = "Grey"
+speed_scale = 5.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -1.3 )
+shape = SubResource( 7 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 0, -2 )
+current = true
+zoom = Vector2( 0.3, 0.3 )
+
+[node name="Arrow_pos left" type="Node2D" parent="."]
+position = Vector2( -6, 2.5 )
+
+[node name="Arrow_pos right" type="Node2D" parent="."]
+position = Vector2( 7, 2.5 )
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Timer2" type="Timer" parent="."]
+wait_time = 0.05
+
+[node name="Node" type="Node2D" parent="."]
+z_index = 1
+
+[node name="Melee_weapon" parent="Node" instance=ExtResource( 7 )]
+position = Vector2( -5, 3 )
+
+[node name="Ranged_weapon" parent="Node" instance=ExtResource( 35 )]
+position = Vector2( 0, -2 )
+
+[node name="Shield" type="Sprite" parent="Node"]
+modulate = Color( 1, 1, 1, 0.4 )
+position = Vector2( 0, -1 )
+texture = ExtResource( 54 )
+
+[node name="UI" parent="Node" instance=ExtResource( 8 )]
+margin_top = -2.836
+margin_bottom = -2.836
+
+[node name="Inventory" type="Control" parent="Node"]
+pause_mode = 2
+visible = false
+margin_top = -2.0
+margin_right = 40.0
+margin_bottom = 38.0
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Node/Inventory"]
+margin_left = -194.459
+margin_top = -111.922
+margin_right = 187.541
+margin_bottom = 110.078
+color = Color( 0.137255, 0.137255, 0.137255, 0.768627 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ArmourSlots" type="GridContainer" parent="Node/Inventory"]
+margin_left = -70.0
+margin_top = -80.0
+margin_right = 70.0
+margin_bottom = -55.0
+columns = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="1" type="TextureRect" parent="Node/Inventory/ArmourSlots"]
+margin_right = 25.0
+margin_bottom = 25.0
+texture = ExtResource( 10 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Node/Inventory/ArmourSlots/1"]
+position = Vector2( 12.5, 12.5 )
+frames = ExtResource( 13 )
+animation = "White"
+
+[node name="2" type="TextureRect" parent="Node/Inventory/ArmourSlots"]
+margin_left = 29.0
+margin_right = 54.0
+margin_bottom = 25.0
+texture = ExtResource( 10 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Node/Inventory/ArmourSlots/2"]
+position = Vector2( 12.5, 12.5 )
+frames = ExtResource( 13 )
+animation = "White"
+
+[node name="3" type="TextureRect" parent="Node/Inventory/ArmourSlots"]
+margin_left = 58.0
+margin_right = 83.0
+margin_bottom = 25.0
+texture = ExtResource( 10 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Node/Inventory/ArmourSlots/3"]
+position = Vector2( 12.5, 12.5 )
+frames = ExtResource( 13 )
+animation = "White"
+
+[node name="4" type="TextureRect" parent="Node/Inventory/ArmourSlots"]
+margin_left = 87.0
+margin_right = 112.0
+margin_bottom = 25.0
+texture = ExtResource( 10 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Node/Inventory/ArmourSlots/4"]
+position = Vector2( 12.5, 12.5 )
+frames = ExtResource( 13 )
+animation = "White"
+
+[node name="5" type="TextureRect" parent="Node/Inventory/ArmourSlots"]
+margin_left = 116.0
+margin_right = 141.0
+margin_bottom = 25.0
+texture = ExtResource( 10 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Node/Inventory/ArmourSlots/5"]
+position = Vector2( 12.5, 12.5 )
+frames = ExtResource( 13 )
+animation = "White"
+
+[node name="RangedSlots" type="GridContainer" parent="Node/Inventory"]
+margin_left = -70.0
+margin_top = -45.0
+margin_right = 70.0
+margin_bottom = -20.0
+columns = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="1" type="TextureRect" parent="Node/Inventory/RangedSlots"]
+margin_right = 25.0
+margin_bottom = 25.0
+texture = ExtResource( 10 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Node/Inventory/RangedSlots/1"]
+position = Vector2( 12.5, 12.5 )
+scale = Vector2( 0.5, 0.5 )
+frames = ExtResource( 12 )
+animation = "RapidCrossbow"
+
+[node name="2" type="TextureRect" parent="Node/Inventory/RangedSlots"]
+margin_left = 29.0
+margin_right = 54.0
+margin_bottom = 25.0
+texture = ExtResource( 10 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Node/Inventory/RangedSlots/2"]
+position = Vector2( 12.5, 12.5 )
+scale = Vector2( 0.5, 0.5 )
+frames = ExtResource( 12 )
+animation = "RapidCrossbow"
+
+[node name="3" type="TextureRect" parent="Node/Inventory/RangedSlots"]
+margin_left = 58.0
+margin_right = 83.0
+margin_bottom = 25.0
+texture = ExtResource( 10 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Node/Inventory/RangedSlots/3"]
+position = Vector2( 12.5, 12.5 )
+scale = Vector2( 0.5, 0.5 )
+frames = ExtResource( 12 )
+animation = "RapidCrossbow"
+
+[node name="4" type="TextureRect" parent="Node/Inventory/RangedSlots"]
+margin_left = 87.0
+margin_right = 112.0
+margin_bottom = 25.0
+texture = ExtResource( 10 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Node/Inventory/RangedSlots/4"]
+position = Vector2( 12.5, 12.5 )
+scale = Vector2( 0.5, 0.5 )
+frames = ExtResource( 12 )
+animation = "RapidCrossbow"
+
+[node name="5" type="TextureRect" parent="Node/Inventory/RangedSlots"]
+margin_left = 116.0
+margin_right = 141.0
+margin_bottom = 25.0
+texture = ExtResource( 10 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Node/Inventory/RangedSlots/5"]
+position = Vector2( 12.5, 12.5 )
+scale = Vector2( 0.5, 0.5 )
+frames = ExtResource( 12 )
+animation = "RapidCrossbow"
+
+[node name="MeleeSlots" type="GridContainer" parent="Node/Inventory"]
+margin_left = -70.0
+margin_top = -10.0
+margin_right = 70.0
+margin_bottom = 40.0
+columns = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="1" type="TextureRect" parent="Node/Inventory/MeleeSlots"]
+margin_right = 25.0
+margin_bottom = 25.0
+texture = ExtResource( 10 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Node/Inventory/MeleeSlots/1"]
+position = Vector2( 12.5, 12.5 )
+rotation = -0.785398
+scale = Vector2( 0.5, 0.5 )
+frames = ExtResource( 16 )
+animation = "Pitchfork"
+
+[node name="2" type="TextureRect" parent="Node/Inventory/MeleeSlots"]
+margin_left = 29.0
+margin_right = 54.0
+margin_bottom = 25.0
+texture = ExtResource( 10 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Node/Inventory/MeleeSlots/2"]
+position = Vector2( 12.5, 12.5 )
+rotation = -0.785398
+scale = Vector2( 0.5, 0.5 )
+frames = ExtResource( 16 )
+animation = "Pitchfork"
+
+[node name="3" type="TextureRect" parent="Node/Inventory/MeleeSlots"]
+margin_left = 58.0
+margin_right = 83.0
+margin_bottom = 25.0
+texture = ExtResource( 10 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Node/Inventory/MeleeSlots/3"]
+position = Vector2( 12.5, 12.5 )
+rotation = -0.785398
+scale = Vector2( 0.5, 0.5 )
+frames = ExtResource( 16 )
+animation = "Pitchfork"
+
+[node name="4" type="TextureRect" parent="Node/Inventory/MeleeSlots"]
+margin_left = 87.0
+margin_right = 112.0
+margin_bottom = 25.0
+texture = ExtResource( 10 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Node/Inventory/MeleeSlots/4"]
+position = Vector2( 12.5, 12.5 )
+rotation = -0.785398
+scale = Vector2( 0.5, 0.5 )
+frames = ExtResource( 16 )
+animation = "Pitchfork"
+
+[node name="5" type="TextureRect" parent="Node/Inventory/MeleeSlots"]
+margin_left = 116.0
+margin_right = 141.0
+margin_bottom = 25.0
+texture = ExtResource( 10 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Node/Inventory/MeleeSlots/5"]
+position = Vector2( 12.5, 12.5 )
+rotation = -0.785398
+scale = Vector2( 0.5, 0.5 )
+frames = ExtResource( 16 )
+animation = "Pitchfork"
+
+[node name="6" type="TextureRect" parent="Node/Inventory/MeleeSlots"]
+margin_top = 29.0
+margin_right = 25.0
+margin_bottom = 54.0
+texture = ExtResource( 10 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Node/Inventory/MeleeSlots/6"]
+position = Vector2( 12.5, 12.5 )
+rotation = -0.785398
+scale = Vector2( 0.5, 0.5 )
+frames = ExtResource( 16 )
+animation = "Pitchfork"
+
+[node name="7" type="TextureRect" parent="Node/Inventory/MeleeSlots"]
+margin_left = 29.0
+margin_top = 29.0
+margin_right = 54.0
+margin_bottom = 54.0
+texture = ExtResource( 10 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Node/Inventory/MeleeSlots/7"]
+position = Vector2( 12.5, 12.5 )
+rotation = -0.785398
+scale = Vector2( 0.5, 0.5 )
+frames = ExtResource( 16 )
+animation = "Pitchfork"
+
+[node name="8" type="TextureRect" parent="Node/Inventory/MeleeSlots"]
+margin_left = 58.0
+margin_top = 29.0
+margin_right = 83.0
+margin_bottom = 54.0
+texture = ExtResource( 10 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Node/Inventory/MeleeSlots/8"]
+position = Vector2( 12.5, 12.5 )
+rotation = -0.785398
+scale = Vector2( 0.5, 0.5 )
+frames = ExtResource( 16 )
+animation = "Pitchfork"
+
+[node name="9" type="TextureRect" parent="Node/Inventory/MeleeSlots"]
+margin_left = 87.0
+margin_top = 29.0
+margin_right = 112.0
+margin_bottom = 54.0
+texture = ExtResource( 10 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Node/Inventory/MeleeSlots/9"]
+position = Vector2( 12.5, 12.5 )
+rotation = -0.785398
+scale = Vector2( 0.5, 0.5 )
+frames = ExtResource( 16 )
+animation = "Pitchfork"
+
+[node name="10" type="TextureRect" parent="Node/Inventory/MeleeSlots"]
+margin_left = 116.0
+margin_top = 29.0
+margin_right = 141.0
+margin_bottom = 54.0
+texture = ExtResource( 10 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Node/Inventory/MeleeSlots/10"]
+position = Vector2( 12.5, 12.5 )
+rotation = -0.785398
+scale = Vector2( 0.5, 0.5 )
+frames = ExtResource( 16 )
+animation = "Pitchfork"
+
+[node name="ColorRect3" type="ColorRect" parent="Node/Inventory"]
+margin_left = -160.0
+margin_top = -80.0
+margin_right = -100.0
+margin_bottom = 40.0
+color = Color( 0.0980392, 0.0980392, 0.0980392, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect2" type="ColorRect" parent="Node/Inventory"]
+margin_left = 100.0
+margin_top = -80.0
+margin_right = 160.0
+margin_bottom = 40.0
+color = Color( 0.0980392, 0.0980392, 0.0980392, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Labels" type="Control" parent="Node/Inventory"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Current" type="Label" parent="Node/Inventory/Labels"]
+margin_left = -160.0
+margin_top = -80.0
+margin_right = -100.0
+margin_bottom = -50.0
+custom_fonts/font = SubResource( 8 )
+custom_colors/font_color = Color( 0.290196, 0.756863, 0.937255, 1 )
+text = "CURRENT"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Damage_left" type="Label" parent="Node/Inventory/Labels"]
+margin_left = -155.0
+margin_top = -50.0
+margin_right = -105.0
+margin_bottom = -20.0
+custom_fonts/font = SubResource( 9 )
+text = "Damage"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Defense_left" type="Label" parent="Node/Inventory/Labels"]
+margin_left = -155.0
+margin_top = -50.0
+margin_right = -105.0
+margin_bottom = -20.0
+custom_fonts/font = SubResource( 9 )
+text = "Defense"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Speed_left" type="Label" parent="Node/Inventory/Labels"]
+margin_left = -155.0
+margin_top = -10.0
+margin_right = -105.0
+margin_bottom = 20.0
+custom_fonts/font = SubResource( 9 )
+text = "Speed"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Weight_left" type="Label" parent="Node/Inventory/Labels"]
+margin_left = -155.0
+margin_top = -10.0
+margin_right = -105.0
+margin_bottom = 20.0
+custom_fonts/font = SubResource( 9 )
+text = "Weight"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="New" type="Label" parent="Node/Inventory/Labels"]
+margin_left = 100.746
+margin_top = -80.0
+margin_right = 160.746
+margin_bottom = -50.0
+custom_fonts/font = SubResource( 10 )
+custom_colors/font_color = Color( 0.945098, 0.964706, 0.290196, 1 )
+text = "NEW"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Damage_right" type="Label" parent="Node/Inventory/Labels"]
+margin_left = 105.0
+margin_top = -50.0
+margin_right = 155.0
+margin_bottom = -20.0
+custom_fonts/font = SubResource( 11 )
+text = "Damage"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Defense_right" type="Label" parent="Node/Inventory/Labels"]
+margin_left = 105.0
+margin_top = -50.0
+margin_right = 155.0
+margin_bottom = -20.0
+custom_fonts/font = SubResource( 12 )
+text = "Defense"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Weight_right" type="Label" parent="Node/Inventory/Labels"]
+margin_left = 105.0
+margin_top = -10.0
+margin_right = 155.0
+margin_bottom = 20.0
+custom_fonts/font = SubResource( 13 )
+text = "Weight"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Speed_right" type="Label" parent="Node/Inventory/Labels"]
+margin_left = 105.0
+margin_top = -10.0
+margin_right = 155.0
+margin_bottom = 20.0
+custom_fonts/font = SubResource( 14 )
+text = "Speed"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Topleft" type="Label" parent="Node/Inventory/Labels"]
+margin_left = -150.297
+margin_top = -25.0
+margin_right = -110.297
+margin_bottom = -5.0
+custom_fonts/font = SubResource( 15 )
+text = "0"
+align = 1
+valign = 1
+
+[node name="Topright" type="Label" parent="Node/Inventory/Labels"]
+margin_left = 110.0
+margin_top = -25.0
+margin_right = 150.0
+margin_bottom = -5.0
+custom_fonts/font = SubResource( 16 )
+text = "0"
+align = 1
+valign = 1
+
+[node name="Bottomright" type="Label" parent="Node/Inventory/Labels"]
+margin_left = 110.0
+margin_top = 15.0
+margin_right = 150.0
+margin_bottom = 35.0
+custom_fonts/font = SubResource( 17 )
+text = "0"
+align = 1
+valign = 1
+
+[node name="Bottomleft" type="Label" parent="Node/Inventory/Labels"]
+margin_left = -150.297
+margin_top = 15.0
+margin_right = -110.297
+margin_bottom = 35.0
+custom_fonts/font = SubResource( 18 )
+text = "0"
+align = 1
+valign = 1
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2( 0, -1.3 )
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 19 )
+
+[node name="Bob" parent="." instance=ExtResource( 36 )]
+visible = false
+position = Vector2( -28.561, 71 )
+
+[node name="Timer3" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
+[node name="Timer4" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
+[node name="Timer5" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
+[node name="Redbull" type="TextureProgress" parent="."]
+margin_left = 149.648
+margin_top = -68.4751
+margin_right = 166.648
+margin_bottom = -45.4751
+value = 100.0
+texture_progress = ExtResource( 55 )
+fill_mode = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Car" type="TextureProgress" parent="."]
+margin_left = 142.721
+margin_top = -38.5867
+margin_right = 174.721
+margin_bottom = -23.5867
+value = 100.0
+texture_progress = ExtResource( 56 )
+fill_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ATenth" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true
+[connection signal="animation_finished" from="Animations/Wings" to="." method="_on_Wings_animation_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_Timer2_timeout"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
+[connection signal="timeout" from="Timer3" to="." method="_on_Timer3_timeout"]
+[connection signal="timeout" from="Timer4" to="." method="_on_Timer4_timeout"]
+[connection signal="timeout" from="Timer5" to="." method="_on_Timer5_timeout"]
+[connection signal="timeout" from="ATenth" to="." method="_on_ATenth_timeout"]
