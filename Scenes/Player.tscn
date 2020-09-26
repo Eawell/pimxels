@@ -57,6 +57,8 @@
 [ext_resource path="res://Sprites/Other/redbull.png" type="Texture" id=55]
 [ext_resource path="res://Sprites/Other/car.png" type="Texture" id=56]
 
+
+
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 1 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 1 ), ExtResource( 5 ) ],

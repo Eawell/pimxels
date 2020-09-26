@@ -5,7 +5,7 @@ var health = 10
 onready var max_health = 10
 var luck = 1
 var direction
-var coins = 1000
+var coins = 10000
 var paused
 var level = 1
 onready var melee_open_slot = melee2

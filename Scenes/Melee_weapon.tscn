@@ -12,6 +12,9 @@
 [ext_resource path="res://Sprites/Melee/Hammer.png" type="Texture" id=10]
 [ext_resource path="res://Sprites/Melee/Pitchfork.png" type="Texture" id=11]
 
+
+
+
 [sub_resource type="Animation" id=1]
 resource_name = "Axe left"
 length = 0.3

@@ -16,6 +16,9 @@
 [ext_resource path="res://Sprites/Ranged/Crossbow.png" type="Texture" id=14]
 [ext_resource path="res://Sprites/Melee/Pitchfork.png" type="Texture" id=15]
 
+
+
+
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 8 ) ],

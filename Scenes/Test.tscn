@@ -7,7 +7,7 @@
 [ext_resource path="res://Scenes/Armour.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Test.gd" type="Script" id=6]
 [ext_resource path="res://Scenes/Fungus.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Scenes/Warrior.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Living Tree.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/Checkpoint.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/Box.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Scenes/Redbull.tscn" type="PackedScene" id=11]
@@ -103,5 +103,5 @@ position = Vector2( 256, 40 )
 [node name="Noodles" parent="." instance=ExtResource( 14 )]
 position = Vector2( 208, 40 )
 
-[node name="Warrior" parent="." instance=ExtResource( 8 )]
-position = Vector2( -104, -24 )
+[node name="Living Tree" parent="." instance=ExtResource( 8 )]
+position = Vector2( -200, -48 )

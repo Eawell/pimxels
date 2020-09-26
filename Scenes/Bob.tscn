@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Other/8bitOperatorPlus-Bold.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Sprites/Other/Bob.png" type="Texture" id=2]
@@ -17,6 +17,7 @@
 [ext_resource path="res://Sprites/Enemies/Millenium Falcon.png" type="Texture" id=15]
 [ext_resource path="res://Sprites/Enemies/Slime 4.png" type="Texture" id=16]
 [ext_resource path="res://Sprites/Enemies/SmallBurger-open.png" type="Texture" id=17]
+[ext_resource path="res://Sprites/Enemies/Living tree.png" type="Texture" id=18]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.811765, 0.811765, 0.811765, 1 )
@@ -28,7 +29,6 @@ border_color = Color( 0.0705882, 0.0705882, 0.0705882, 1 )
 anti_aliasing = false
 
 [sub_resource type="DynamicFont" id=2]
-size = 11
 font_data = ExtResource( 1 )
 
 [sub_resource type="SpriteFrames" id=3]
@@ -41,21 +41,6 @@ animations = [ {
 
 [sub_resource type="SpriteFrames" id=4]
 animations = [ {
-"frames": [ ExtResource( 10 ) ],
-"loop": true,
-"name": "bowman",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 7 ) ],
-"loop": true,
-"name": "burger",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 13 ) ],
-"loop": true,
-"name": "buffalo",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 15 ) ],
 "loop": true,
 "name": "falcon",
@@ -64,6 +49,31 @@ animations = [ {
 "frames": [ ExtResource( 9 ) ],
 "loop": true,
 "name": "box",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "burger",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 16 ) ],
+"loop": true,
+"name": "slime",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ) ],
+"loop": true,
+"name": "bowman",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 17 ) ],
+"loop": true,
+"name": "smallburger",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 13 ) ],
+"loop": true,
+"name": "buffalo",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 14 ) ],
@@ -81,19 +91,14 @@ animations = [ {
 "name": "shopkeeper",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 16 ) ],
-"loop": true,
-"name": "slime",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 8 ) ],
 "loop": true,
 "name": "torch",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 17 ) ],
+"frames": [ ExtResource( 5 ) ],
 "loop": true,
-"name": "smallburger",
+"name": "warrior",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 12 ) ],
@@ -101,9 +106,9 @@ animations = [ {
 "name": "thundercloud",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 5 ) ],
+"frames": [ ExtResource( 18 ) ],
 "loop": true,
-"name": "warrior",
+"name": "livingtree",
 "speed": 5.0
 } ]
 
@@ -143,13 +148,13 @@ __meta__ = {
 }
 
 [node name="Size" type="Node2D" parent="."]
-scale = Vector2( 0.9, 0.9 )
+scale = Vector2( 0.57, 0.57 )
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Size"]
-margin_left = -36.0
-margin_top = -44.0
-margin_right = 227.0
-margin_bottom = 29.0
+margin_left = -55.0
+margin_top = -68.0
+margin_right = 357.0
+margin_bottom = 46.0
 custom_fonts/normal_font = SubResource( 2 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 text = "Look over there at all of those things ggjgj oiwfn jiosjc ji ji f iehef husg  how  been looking all over for you! f10000"
@@ -162,14 +167,15 @@ __meta__ = {
 position = Vector2( -95, -30 )
 scale = Vector2( 4, 4 )
 frames = SubResource( 3 )
+frame = 1
 speed_scale = 1.5
 playing = true
 
 [node name="Icon" type="AnimatedSprite" parent="."]
-position = Vector2( 48.0833, -103.945 )
+position = Vector2( 48, -110 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 4 )
-animation = "smallburger"
+animation = "livingtree"
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.05

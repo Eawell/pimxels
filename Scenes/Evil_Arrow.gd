@@ -11,7 +11,7 @@ func _ready():
 
 	
 func _physics_process(delta):
-	y = 1.11*y
+	y = min(1.11*y,200)
 	x = x/1.002
 	motion.y = y
 	motion.x = x
