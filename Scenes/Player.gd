@@ -16,6 +16,7 @@ var particles = preload("res://Scenes/Particles.tscn")
 var wings
 var jumps
 var transparency
+onready var detected_tree = false
 
 func clear():
 	$Animations/Red.visible = false
@@ -25,6 +26,7 @@ func clear():
 	$Animations/White.visible = false
 
 func _ready():
+	$Lifebar.visible = false
 	global.bob = false
 	transparency = 0.7
 	$Redbull.value = 0
@@ -75,6 +77,8 @@ func _physics_process(delta):
 	colour = armour.style
 	motion.y += gravity
 	get_node("Animations/" + colour).visible = true
+	if detected_tree:
+		$Lifebar.value = global.tree_health
 	if global.shield:
 		$Node/Shield.modulate = Color(1,1,1,transparency)
 		$Node/Shield.visible = true
@@ -145,6 +149,9 @@ func _on_Timer2_timeout():
 func _on_Area2D_area_entered(area):
 	if area.name == "Evil_Arrow":
 		global.hit(1)
+	if area.name == "Detected_zone":
+		$Lifebar.visible = true
+		detected_tree = true
 
 
 func _on_Wings_animation_finished():
@@ -178,3 +185,8 @@ func _on_ATenth_timeout():
 		$Car.value -= 1
 	if global.shield:
 		transparency -= 0.005
+
+func _on_Area2D_area_exited(area):
+	if area.name == "Detected_zone":
+		$Lifebar.visible = false
+		detected_tree = false

@@ -33,6 +33,7 @@ var boost
 var shield
 var protection
 var bob
+var tree_health = 20
 
 var weapon = load("res://Other/weaponstats.gd")
 var armour = load("res://Other/armourstats.gd")

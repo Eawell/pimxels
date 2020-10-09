@@ -7,6 +7,7 @@ var health = 20
 var damage = 5
 
 func _process(delta):
+	global.tree_health = health
 	$Sight.look_at(global.ID.global_position)
 	if $Sight/RayCast2D.get_collider() == global.ID:
 		shoot()

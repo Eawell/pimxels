@@ -18,7 +18,7 @@ var smallburger = ["smallburger", "Eventhough they are less dangerous than their
 var thundercloud = ["thundercloud", "Once locked on, these thunderclouds won't leave you alone until they try and strike you down. Watch out for when they stop moving as they're about zap!"]
 var torch = ["torch", "Torches that light after you pass by them, saving your checkpoint. If you pass an already lit torch it will still set a new chechpoint."]
 var warrior = ["warrior", "Powerful warriors covered in impenetrable armour. They are stocky targets, yet you chouldn't underestimate their speed."]
-var livingtree = ["livingtree", "This giant tree "]
+var livingtree = ["livingtree", "This giant tree has been enlisted by Ozzy to stop anyone from passing and attempting to ruin his plans. Watch out for it's flying branches! "]
 
 var story1 = ["none", ""]
 var story2 = ["none", ""]
