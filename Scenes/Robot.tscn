@@ -1,17 +1,116 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=26 format=2]
+
+[ext_resource path="res://Sprites/Enemies/Robot.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/Robot.gd" type="Script" id=2]
+[ext_resource path="res://Sprites/Enemies/Robot-1.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Enemies/Robot-2.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Enemies/Robot-L1.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Enemies/Robot-L2.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Enemies/Robot-R3.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Enemies/Robot-R2.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Enemies/Robot-L3.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Enemies/Robot-R1.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Enemies/Robot arm.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/Other/Robot-particles.png" type="Texture" id=12]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [  ],
+"frames": [ ExtResource( 1 ), ExtResource( 10 ), ExtResource( 8 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 10 ), ExtResource( 1 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 9 ), ExtResource( 6 ), ExtResource( 5 ) ],
 "loop": true,
-"name": "default",
+"name": "walking",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 1 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "standing",
 "speed": 5.0
 } ]
 
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 6.0
+height = 26.0
+
+[sub_resource type="Animation" id=3]
+resource_name = "L"
+tracks/0/type = "value"
+tracks/0/path = NodePath("LArm:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, -55.0, 0.0 ]
+}
+
+[sub_resource type="Animation" id=4]
+tracks/0/type = "value"
+tracks/0/path = NodePath("RArm:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 55.0, 0.0 ]
+}
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 14, 14 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 36, 28 )
+
+[sub_resource type="Gradient" id=12]
+colors = PoolColorArray( 1, 1, 1, 1, 0.446144, 0.446144, 0.446144, 1 )
+
+[sub_resource type="GradientTexture" id=13]
+gradient = SubResource( 12 )
+
+[sub_resource type="Curve" id=8]
+min_value = -200.0
+max_value = 200.0
+_data = [ Vector2( 0, 0.437683 ), 0.0, 0.0, 0, 0, Vector2( 0.993671, -85.7655 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=9]
+curve = SubResource( 8 )
+
+[sub_resource type="Curve" id=10]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.446244 ), -2.02397, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=11]
+curve = SubResource( 10 )
+
+[sub_resource type="ParticlesMaterial" id=7]
+flag_disable_z = true
+direction = Vector3( 0, -1, 0 )
+spread = 60.0
+gravity = Vector3( 0, 100, 0 )
+initial_velocity = 120.0
+initial_velocity_random = 0.9
+angular_velocity = 720.0
+angular_velocity_random = 1.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel_curve = SubResource( 9 )
+scale = 1.2
+scale_random = 1.0
+scale_curve = SubResource( 11 )
+color_ramp = SubResource( 13 )
+
 [node name="Robot" type="KinematicBody2D"]
+script = ExtResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
+animation = "walking"
+frame = 9
+speed_scale = 1.5
+playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
@@ -24,3 +123,77 @@ frames = SubResource( 1 )
 [node name="Timer2" type="Timer" parent="."]
 
 [node name="Timer3" type="Timer" parent="."]
+
+[node name="RArm" type="KinematicBody2D" parent="."]
+position = Vector2( 18, 4 )
+
+[node name="Sprite" type="Sprite" parent="RArm"]
+position = Vector2( 16, 0 )
+texture = ExtResource( 11 )
+
+[node name="Area2D" type="Area2D" parent="RArm"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RArm/Area2D"]
+position = Vector2( 15, 0 )
+rotation = 1.5708
+shape = SubResource( 2 )
+
+[node name="LArm" type="KinematicBody2D" parent="."]
+position = Vector2( -18, 4 )
+
+[node name="Sprite" type="Sprite" parent="LArm"]
+position = Vector2( -16, 0 )
+texture = ExtResource( 11 )
+flip_h = true
+
+[node name="Area2D" type="Area2D" parent="LArm"]
+position = Vector2( -31, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LArm/Area2D"]
+position = Vector2( 15, 0 )
+rotation = 1.5708
+shape = SubResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/L = SubResource( 3 )
+anims/R = SubResource( 4 )
+
+[node name="Rattack" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rattack"]
+position = Vector2( 34, 18 )
+shape = SubResource( 5 )
+
+[node name="Lattack" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lattack"]
+position = Vector2( -34, 18 )
+shape = SubResource( 5 )
+
+[node name="Rdetect" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rdetect"]
+position = Vector2( 84, 4 )
+shape = SubResource( 6 )
+
+[node name="Ldetect" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ldetect"]
+position = Vector2( -84, 4 )
+shape = SubResource( 6 )
+
+[node name="Particles2D" type="Particles2D" parent="."]
+scale = Vector2( 0.5, 0.5 )
+amount = 40
+lifetime = 0.8
+explosiveness = 1.0
+process_material = SubResource( 7 )
+texture = ExtResource( 12 )
